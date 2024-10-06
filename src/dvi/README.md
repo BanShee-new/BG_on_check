@@ -1,70 +1,74 @@
+# BrickGame (Тетрис)
 
-# BrickGame v1.0 aka Tetris
- 
-## Introduction
-  BrickGame v1.0 is a console-based Tetris game developed in C using the
-ncurses library. It features classic Tetris gameplay with additional mechanics
-such as score counting, level progression, and high score tracking.
+## Введение
+BrickGame v1.0 — это консольная игра Тетрис, разработанная на C с использованием библиотеки ncurses. Она предлагает классический игровой процесс Тетриса с дополнительными механиками, такими как подсчет очков, прогресс уровней и отслеживание рекордов.
 
-![game](game.png)
- 
-## Features
- - Classic Tetris gameplay with the following mechanics:
-    - Rotation of tetrominoes
-    - Horizontal movement of tetrominoes
-    - Accelerated tetromino falling (by holding the down arrow key)
-    - Display of the next tetromino
-    - Line clearing
-    - Game over when the tetromino reaches the top of the game field
- - Support for all physical buttons on the console:
-    - Start new game - Enter
-    - Pause - 'p'
-    - End game - 'q'
-    - Move left -  left arrow
-    - Move right -  right arrow
-    - Move down - down arrow
-    - Rotate - Space
- - Matrix-based game field with dimensions corresponding to the console's size
-(10x20 pixels)
- - Proper stopping of tetrominoes after reaching the bottom or colliding with
-another tetromino
- - Unit tests for the game logic library, achieving at least 90% code coverage
- 
-  
-## Additional mechanics
- 
-### Score Calculation
+Проект состоит из двух частей для реализации игры Тетрис: библиотеки, реализующей логику игры и терминального интерфейса. Логика библиотеки реализована с использованием конечного автомата.
 
-- 1 line cleared: 100 points
-- 2 lines cleared: 300 points
-- 3 lines cleared: 700 points
-- 4 lines cleared: 1500 points
+![Игра](/src/dvi/game.png)
 
-### High Score Tracking
+## Особенности
+1. Классический игровой процесс Тетриса с следующими механиками:
+- Поворот тетромино (фигуры)
+- Горизонтальное движение тетромино
+- Ускоренное падение тетромино (при удерживании клавиши вниз)
+- Отображение следующего тетромино
+- Удаление линий
+- Конец игры, когда тетромино достигает верхней части игрового поля
+2. Поддержка всех физических кнопок на консоли:
+- Начать новую игру — Enter
+- Пауза — 'p'
+- Завершить игру — 'q'
+- Движение влево — левая стрелка
+- Движение вправо — правая стрелка
+- Движение вниз — стрелка вниз
+- Поворот — Пробел
+3. Игровое поле на основе матрицы с размерами, соответствующими размеру консоли (10x20 пикселей)
+4. Корректная остановка тетромино после достижения дна или столкновения с другим тетромино
+5. Модульные тесты для библиотеки логики игры с охватом кода не менее 90%
+6. Дополнительные механики
 
-- Display of the player's current score and highest score achieved
-- Highest score is stored in a file or embedded database and persists between
-game sessions
- 
-### Level Progression
+## Подсчет очков
+1 линия очищена: 100 очков  
+2 линии очищены: 300 очков  
+3 линии очищены: 700 очков  
+4 линии очищены: 1500 очков
 
-- Progression of levels every 600 points
-- Increasing level increases the speed of tetromino falling
- 
-## Installation
+## Отслеживание рекорда
+Отображение текущего счета игрока и достигнутого рекорда
+Рекорд сохраняется в файле и сохраняется между игровыми сессиями
 
-1. Clone the repository.
-2. Navigate to the `src/` directory.
-3. To install the project run `make install`
-4. To start playing run `make run`
- 
- 
-## Usage
- 
-- Use the arrow keys to move and rotate tetrominoes.
-- Press the down arrow key to make tetrominoes fall faster.
-- Press the up arrow key to rotate tetrominoes.
- 
-## Fsm Finite State Machine (FSM) Diagram
-  A diagram showing the FSM used in the game logic.
-	![FSM](fsm.png)
+## Прогрессия уровней
+Прогрессия уровней каждые 600 очков
+Повышение уровня увеличивает скорость падения тетромино
+Установка
+
+## Клонируйте репозиторий.
+* Перейдите в директорию src/.
+* Чтобы установить проект, выполните команду ``` make install ```
+* Чтобы начать игру, выполните команду ``` make run ```
+
+## Использование
+Используйте стрелки для перемещения и поворота тетромино.
+Нажмите стрелку вниз, чтобы заставить тетромино падать быстрее.
+Нажмите стрелку вверх, чтобы повернуть тетромино.
+## Диаграмма конечного автомата (FSM)
+
+Диаграмма, показывающая конечный автомат, используемый в логике игры. 
+
+![Диаграмма](/src/dvi/fsm.png "Диаграмма")
+
+## Деинсталляция
+Перейдите в директорию src/.
+Чтобы удалить проект, выполните команду ``` make uninstall ```
+Цели Makefile:
+
+## Дополнительно
+* dvi
+Создает и открывает документацию проекта (с использованием Doxygen).
+* dist
+Генерирует дистрибутив .tgz с исполняемым файлом и необходимой документацией.
+* test
+Запускает тестирование модулей калькулятора и его контроллера. Отчет можно просмотреть в папке /tests/logs.
+* gcov_report
+Генерирует html-отчет, отображающий покрытие всех функций тестами.
