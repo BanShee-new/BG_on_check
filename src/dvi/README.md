@@ -5,7 +5,8 @@
   BrickGame v1.0 is a console-based Tetris game developed in C using the
 ncurses library. It features classic Tetris gameplay with additional mechanics
 such as score counting, level progression, and high score tracking.
-	![game](game.png)
+
+![game](game.png)
  
 ## Features
  - Classic Tetris gameplay with the following mechanics:
